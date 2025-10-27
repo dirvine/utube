@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Titlebar - draggable area */
+.titlebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 4px;
+}
+
+body:hover .titlebar {
+  opacity: 1;
+}
+
+.titlebar-controls {
+  display: flex;
+  gap: 8px;
+  padding-right: 8px;
+}
+
+.titlebar-button {
+  width: 28px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s ease;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.titlebar-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.titlebar-button.minimize:hover {
+  background: rgba(255, 193, 7, 0.6);
+}
+
+.titlebar-button.close:hover {
+  background: rgba(244, 67, 54, 0.8);
+}
+
+.titlebar-button span {
+  line-height: 1;
+  user-select: none;
+}
+
+/* YouTube container */
+.youtube-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#youtube-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Ensure transparent window background */
+body {
+  background-color: transparent;
+}
