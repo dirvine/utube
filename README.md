@@ -62,6 +62,18 @@ The app uses YouTube's native keyboard shortcuts:
 - `F`: Toggle fullscreen
 - And more...
 
+## Known Limitations
+
+### Passkey Authentication
+**Important:** The embedded webview has limited support for passkey/WebAuthn authentication. This is a platform limitation of WKWebView on macOS.
+
+**Workarounds:**
+1. **Use Password Authentication** - Sign in with your Google password instead of passkeys
+2. **Login in Safari First** - Log into YouTube in Safari, then the app may share the session cookies
+3. **Use Standard Browser** - For initial authentication, you may need to use Safari or Chrome with passkeys, then return to the app
+
+This limitation affects all embedded webview applications and cannot be fully resolved without using a full browser engine.
+
 ## Configuration
 
 ### Window Settings

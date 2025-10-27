@@ -1,9 +1,12 @@
 const { getCurrentWindow } = window.__TAURI__.window;
 const { invoke } = window.__TAURI__.core;
 
-// Initialize window controls
-window.addEventListener("DOMContentLoaded", () => {
+// Initialize window controls and navigate to YouTube
+window.addEventListener("DOMContentLoaded", async () => {
   const appWindow = getCurrentWindow();
+
+  // Navigate to YouTube
+  window.location.href = "https://www.youtube.com";
 
   // Minimize button
   const minimizeBtn = document.getElementById("minimize-btn");

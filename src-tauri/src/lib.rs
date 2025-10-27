@@ -52,11 +52,22 @@ async fn save_window_position(window: Window) -> Result<(), String> {
     Ok(())
 }
 
+#[tauri::command]
+async fn open_in_browser() -> Result<(), String> {
+    // Open YouTube in the system's default browser for authentication
+    tauri::async_runtime::spawn(async {
+        if let Err(e) = open::that("https://www.youtube.com") {
+            eprintln!("Failed to open browser: {}", e);
+        }
+    });
+    Ok(())
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![save_window_position])
+        .invoke_handler(tauri::generate_handler![save_window_position, open_in_browser])
         .setup(|app| {
             let main_window = app
                 .get_webview_window("main")
